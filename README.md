@@ -25,7 +25,7 @@ It includes JWT-based authentication, Alembic migrations, and a small test suite
 First clone this repo by using following command
 ````
 
-git clone https://github.com/Sanjeev-Thiyagarajan/fastapi-course.git
+git clone https://github.com/ArfanGit/CRUD_Operation
 
 ````
 then 
@@ -62,18 +62,22 @@ http://127.0.0.1:8000/docs
 Create a database in postgres then create a file name .env and write the following things in you file 
 
 ````
-DATABASE_HOSTNAME = localhost
-DATABASE_PORT = 5432
-DATABASE_PASSWORD = passward_that_you_set
-DATABASE_NAME = name_of_database
-DATABASE_USERNAME = User_name
-SECRET_KEY = 09d25e094faa2556c818166b7a99f6f0f4c3b88e8d3e7 
-ALGORITHM = HS256
-ACCESS_TOKEN_EXPIRE_MINUTES = 60(base)
+## Environment Configuration
+
+This project uses `.env` for local configuration (secrets are not hardcoded).
+
+1. **Copy the example file:**
+   cp .env.example .env
+   
+Edit .env and set your actual values:
+DATABASE_PASSWORD: your Postgres password
+SECRET_KEY: generate a random 64-char hex string (e.g., python -c "import secrets; print(secrets.token_hex(32))")
+Docker Compose will automatically load .env when you run docker compose up.
+Note: .env is gitignored, so your secrets won't be committed. The .env.example file shows the required variables.
+
 
 ````
-### Note: SECRET_KEY in this exmple is just a psudo key. You need to get a key for youself and you can get the SECRET_KEY  from fastapi documantion
- 
+
 
 
 ### How this API is structured
